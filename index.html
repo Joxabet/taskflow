@@ -494,7 +494,9 @@
       <button class="icon-btn btn-hide-mobile" id="btn-print" title="Print task list" aria-label="Print task list">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
       </button>
-      <button class="btn btn-hide-mobile" id="btn-tpl" title="Create the four-weekly close checklist" style="background:var(--surface2);border-color:var(--border);color:var(--text)">Close checklist</button>
+      <button class="icon-btn btn-hide-mobile" id="btn-tpl" title="Templates" aria-label="Task templates">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </button>
       <button class="icon-btn btn-hide-mobile" id="btn-ie" title="Import / Export" aria-label="Import or export tasks">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       </button>
@@ -514,7 +516,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
         </button>
         <div class="mobile-menu" id="mobile-menu">
-          <button class="mobile-menu-item" id="mob-btn-tpl">Close checklist</button>
+          <button class="mobile-menu-item" id="mob-btn-tpl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            Templates
+          </button>
           <button class="mobile-menu-item" id="mob-btn-ie">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Import / Export
@@ -685,8 +690,8 @@
 <!-- Import / Export panel -->
 <div class="ie-overlay" id="tpl-overlay" style="display:none">
   <div class="tpl-panel" role="dialog" aria-labelledby="tpl-h">
-    <h2 id="tpl-h">Four-weekly close checklist</h2>
-    <div class="ie-sub" style="font-size:13px;color:var(--text2);margin-bottom:6px">Creates the whole checklist in one go. Each task repeats every 4 weeks: when you complete one, the next cycle's copy appears automatically with its subtasks reset.</div>
+    <h2 id="tpl-h">Templates</h2>
+    <div class="ie-sub" style="font-size:13px;color:var(--text2);margin-bottom:6px"><strong>Four-weekly close</strong> — creates the whole checklist in one go. Each task repeats every 4 weeks: when you complete one, the next cycle's copy appears automatically with its subtasks reset.</div>
     <div class="tpl-grid">
       <div class="form-group"><label class="form-label">Period end date</label><input class="form-input" type="date" id="tpl-anchor"><div class="tpl-hint">Due dates are counted from this day</div></div>
       <div class="form-group"><label class="form-label">Category</label><select class="form-input" id="tpl-cat"></select></div>
