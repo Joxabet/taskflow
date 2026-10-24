@@ -1,0 +1,28 @@
+name: Keep Supabase awake
+
+# Sends a small request to the Supabase API twice a week so the free-plan
+# project never reaches 7 days without activity (which would pause it).
+
+on:
+  schedule:
+    # Every Monday and Thursday at 06:17 UTC
+    - cron: '17 6 * * 1,4'
+  workflow_dispatch: # lets you run it manually from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        env:
+          SUPABASE_URL: https://uqgdtoemsblggewyqdmd.supabase.co
+          # Public "anon" key (same one that is already in index.html)
+          SUPABASE_ANON_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ2R0b2Vtc2JsZ2dld3lxZG1kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0MTI0NzMsImV4cCI6MjA5Mzk4ODQ3M30.i36OjWC4xBhNhTWz2uimUXpRmbjcdCo-7Z8Iec2KI0g
+        run: |
+          # --fail makes the job go red (and GitHub emails you) if the request fails
+          curl --fail --silent --show-error \
+            "$SUPABASE_URL/rest/v1/settings?select=key&limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY"
+          echo
+          echo "Supabase responded OK"
